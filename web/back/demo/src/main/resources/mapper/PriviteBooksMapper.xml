@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhangxin.back.Dao.PrivateBooksDAO">
+    <insert id="create" parameterType="map">
+        insert into privatebooks (username, origin, id, word)
+        values (#{username}, #{origin}, #{id}, #{word})
+    </insert>
+
+    <delete id="delete" parameterType="map">
+        delete from privatebooks where username = #{username} and word = #{word}
+    </delete>
+
+    <select id="getAllWords" parameterType="String" resultType="com.zhangxin.back.Model.PrivateBooksModel">
+        select * from privatebooks where username = #{username}
+    </select>
+
+    <delete id="deleteAllOfUser" parameterType="String">
+        delete from privatebooks where username = #{username}
+    </delete>
+
+    <select id="getEntry" parameterType="map" resultType="com.zhangxin.back.Model.PrivateBooksModel">
+        select * from privatebooks where username = #{username} and word = #{word}
+    </select>
+
+    <select id="count" parameterType="String" resultType="int">
+        select count(*) from privatebooks where username = #{username}
+    </select>
+</mapper>

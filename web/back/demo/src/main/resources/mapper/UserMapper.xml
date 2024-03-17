@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhangxin.back.Dao.UserDAO">
+    <!-- 插入用户 -->
+    <insert id="create" parameterType="com.zhangxin.back.Model.UserModel">
+        INSERT INTO user (username, password, email, phone, education, studying, studied, plan, lastDate, day1, day2, day3, day4, day5, day6, day7)
+        VALUES (#{username}, #{password}, #{email}, #{phone}, #{education}, 'none', '0', #{plan}, #{lastDate}, '0', '0', '0', '0', '0', '0', '0')
+    </insert>
+
+    <!-- 根据用户名查询用户 -->
+    <select id="getUser" parameterType="java.lang.String" resultType="com.zhangxin.back.Model.UserModel">
+        SELECT * FROM user WHERE username = #{username}
+    </select>
+
+    <!-- 根据用户名判断用户是否存在 -->
+    <select id="isUsernameExist" parameterType="java.lang.String" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT 1 FROM user WHERE username = #{username})
+    </select>
+
+    <!-- 根据邮箱判断用户是否存在 -->
+    <select id="isEmailExist" parameterType="java.lang.String" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT 1 FROM user WHERE email = #{email})
+    </select>
+
+    <!-- 查询所有用户 -->
+    <select id="listUsers" resultType="com.zhangxin.back.Model.UserModel">
+        SELECT * FROM user
+    </select>
+
+    <!-- 删除用户 -->
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM user WHERE username = #{username}
+    </delete>
+
+    <!-- 重置密码 -->
+    <update id="resetPassword">
+        UPDATE user SET password = #{newPassword} WHERE username = #{username}
+    </update>
+
+    <!-- 查询用户正在学习的内容 -->
+    <select id="getStudying" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT studying FROM user WHERE username = #{username}
+    </select>
+
+    <!-- 查询用户邮箱 -->
+    <select id="getEmail" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT email FROM user WHERE username = #{username}
+    </select>
+
+    <!-- 设置用户正在学习的内容 -->
+    <update id="setStudying" parameterType="java.util.Map">
+        UPDATE user SET studying = #{newTitle}, studied = '0', plan = '20' WHERE username = #{username}
+    </update>
+
+    <!-- 设置用户学习计划 -->
+    <update id="setPlan" parameterType="java.util.Map">
+        UPDATE user SET plan = #{num} WHERE username = #{user}
+    </update>
+
+    <!-- 查询用户学习计划 -->
+    <select id="getPlan" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT plan FROM user WHERE username = #{user}
+    </select>
+
+    <!-- 查询用户学习进度 -->
+    <select id="getStudied" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT studied FROM user WHERE username = #{user}
+    </select>
+
+    <!-- 更新用户学习进度 -->
+    <update id="updateStudied" parameterType="java.util.Map">
+        UPDATE user SET studied = studied + #{num} WHERE username = #{user}
+    </update>
+
+    <!-- 更新用户最后学习日期 -->
+    <update id="updateDate" parameterType="java.util.Map">
+        UPDATE user SET lastDate = #{date} WHERE username = #{user}
+    </update>
+
+    <!-- 查询用户最后学习日期 -->
+    <select id="getLastDate" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT lastDate FROM user WHERE username = #{user}
+    </select>
+
+    <!-- 清除用户连续学习天数 -->
+    <update id="clearDays" parameterType="java.lang.String">
+        UPDATE user SET day1 = '0', day2 = '0', day3 = '0', day4 = '0', day5 = '0', day6 = '0', day7 = '0' WHERE username = #{user}
+    </update>
+
+    <!-- 将用户学习天数左移 -->
+    <update id="leftShift" parameterType="java.util.Map">
+        UPDATE user SET day1 = #{day1}, day2 = #{day2}, day3 = #{day3}, day4 = #{day4}, day5 = #{day5}, day6 = #{day6}, day7 = #{addToDay7} WHERE username = #{user}
+    </update>
+
+    <!-- 更新用户第七天学习天数 -->
+    <update id="updateDay7" parameterType="java.util.Map">
+        UPDATE user SET day7 = day7 + #{amount} WHERE username = #{user}
+    </update>
+</mapper>

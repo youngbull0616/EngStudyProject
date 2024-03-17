@@ -1,0 +1,125 @@
+html, body {
+  height: 100%; 
+  overflow: auto;
+  background-color: #fff;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 60px 1fr auto;
+}
+
+.btn {
+  height: auto;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-default:hover, .btn-default.focus, .btn-default:focus, .btn-default.active, .btn-default:active {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.btn-key {
+  color: #000;
+  background-color: #d3d6da;
+  border-color: #d3d6da;
+}
+
+.btn-key:hover, .btn-key.focus, .btn-key:focus, .btn-key.active, .btn-key:active {
+  color: #000;
+  background-color: #adadad;
+  border-color: #adadad;
+}
+
+.wordle-header {
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+}
+
+.wordle-header .title {
+  justify-self: center;
+}
+
+.wordle-header .action {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  grid-gap: 5px;
+  align-items: center;
+  justify-self: end;
+}
+
+.wordle-body {
+  padding: 20px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.wordle-body .guess-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.wordle-body .guess-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+}
+
+.wordle-body .guess-row .guess-tile {
+  width: 62px;
+  height: 62px;
+  font-size: 32px;
+  font-weight: 700;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border: 2px solid #d3d6da;
+}
+
+.wordle-body .guess-row .guess-tile:hover {
+  border: 2px solid #878a8c;
+}
+
+.wordle-footer {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 50px 50px 50px;
+  grid-gap: 5px;
+  justify-items: center;
+}
+
+.wordle-footer .key-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(38px, auto);
+  grid-gap: 5px;
+}
+
+.wordle-footer .key-row .key-button {
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangxin.back.Dao.DailyDAO">
+
+    <insert id="create" parameterType="map">
+        insert into daily (username, status, word, id) values (#{username}, #{status}, #{word}, #{id})
+    </insert>
+
+    <select id="getAll" resultType="com.zhangxin.back.Model.DailyModel">
+        select * from daily where username = #{username}
+    </select>
+
+    <select id="getYes" resultType="com.zhangxin.back.Model.DailyModel">
+        select * from daily where username = #{username} and status = 'yes'
+    </select>
+
+    <select id="getNo" resultType="com.zhangxin.back.Model.DailyModel">
+        select * from daily where username = #{username} and status = 'no'
+    </select>
+
+    <!-- batchCreate 方法使用 MyBatis 的批量插入功能 -->
+    <insert id="batchCreate" parameterType="java.util.List">
+        insert into daily (username, status, word, id) values
+        <foreach collection="batch" item="item" separator=",">
+            (#{item.username}, #{item.status}, #{item.word}, #{item.id})
+        </foreach>
+    </insert>
+
+    <delete id="batchDelete">
+        delete from daily where username = #{username}
+    </delete>
+
+</mapper>

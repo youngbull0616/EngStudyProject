@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhangxin.back.Dao.WordBookDAO">
+    <!-- 根据标题查询单词书 -->
+    <select id="getWordBook" parameterType="java.lang.String" resultType="com.zhangxin.back.Model.WordBookModel">
+        SELECT * FROM wordbooks WHERE title = #{title}
+    </select>
+
+    <!-- 查询所有单词书 -->
+    <select id="listWordBooks" resultType="com.zhangxin.back.Model.WordBookModel">
+        SELECT * FROM wordbooks
+    </select>
+
+    <!-- 根据标题查询单词书数量 -->
+    <select id="getNum" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT num FROM wordbooks WHERE title = #{title}
+    </select>
+</mapper>

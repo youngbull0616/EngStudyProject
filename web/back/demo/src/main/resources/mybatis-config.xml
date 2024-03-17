@@ -1,0 +1,20 @@
+<!-- mybatis-config.xml -->
+<configuration>
+    <!-- 配置数据源 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${spring.datasource.driver-class-name}"/>
+                <property name="url" value="${spring.datasource.url}"/>
+                <property name="username" value="${spring.datasource.username}"/>
+                <property name="password" value="${spring.datasource.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置映射器扫描 -->
+    <mappers>
+        <mapper class="com.zhangxin.mapper."/>
+    </mappers>
+</configuration>

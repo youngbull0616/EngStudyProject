@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhangxin.back.Dao.WordEntryDAO">
+    <select id="getWordEntry" resultType="com.zhangxin.back.Model.WordEntryModel">
+        SELECT * FROM ${title} WHERE id = #{id}
+    </select>
+
+    <select id="getWordEntryById" resultType="com.zhangxin.back.Model.WordEntryModel">
+        SELECT * FROM ${title} WHERE id = #{id}
+    </select>
+
+    <select id="getWordEntryList" resultType="com.zhangxin.back.Model.WordEntryModel">
+        SELECT * FROM ${title} WHERE id BETWEEN #{startDate} AND #{endDate}
+    </select>
+
+    <select id="getPoses" resultType="java.lang.String">
+        SELECT poses FROM ${title} WHERE id = #{id}
+    </select>
+
+    <select id="getWord" resultType="java.lang.String">
+        SELECT word FROM ${title} WHERE id = #{id}
+    </select>
+
+    <select id="getPhonetic" resultType="java.lang.String">
+        SELECT phonetic FROM ${title} WHERE id = #{id}
+    </select>
+</mapper>

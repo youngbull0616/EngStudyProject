@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WORDLE</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="wordle-header">
+      <h3 class="title">WORDLE</h3>
+      <div class="action">
+        <button class="btn btn-default" onclick="handleSurrenderClick(event)">揭示谜底</button>
+        <button class="btn btn-default" onclick="handleRestartClick(event)">再来一题</button>
+      </div>
+    </div>
+    <div class="wordle-body">
+      <div class="guess-container">
+        <div class="guess-row">
+          <div id="10" class="guess-tile"></div>
+          <div id="11" class="guess-tile"></div>
+          <div id="12" class="guess-tile"></div>
+          <div id="13" class="guess-tile"></div>
+          <div id="14" class="guess-tile"></div>
+        </div>
+        <div class="guess-row">
+          <div id="20" class="guess-tile"></div>
+          <div id="21" class="guess-tile"></div>
+          <div id="22" class="guess-tile"></div>
+          <div id="23" class="guess-tile"></div>
+          <div id="24" class="guess-tile"></div>
+        </div>
+        <div class="guess-row">
+          <div id="30" class="guess-tile"></div>
+          <div id="31" class="guess-tile"></div>
+          <div id="32" class="guess-tile"></div>
+          <div id="33" class="guess-tile"></div>
+          <div id="34" class="guess-tile"></div>
+        </div>
+        <div class="guess-row">
+          <div id="40" class="guess-tile"></div>
+          <div id="41" class="guess-tile"></div>
+          <div id="42" class="guess-tile"></div>
+          <div id="43" class="guess-tile"></div>
+          <div id="44" class="guess-tile"></div>
+        </div>
+        <div class="guess-row">
+          <div id="50" class="guess-tile"></div>
+          <div id="51" class="guess-tile"></div>
+          <div id="52" class="guess-tile"></div>
+          <div id="53" class="guess-tile"></div>
+          <div id="54" class="guess-tile"></div>
+        </div>
+        <div class="guess-row">
+          <div id="60" class="guess-tile"></div>
+          <div id="61" class="guess-tile"></div>
+          <div id="62" class="guess-tile"></div>
+          <div id="63" class="guess-tile"></div>
+          <div id="64" class="guess-tile"></div>
+        </div>
+      </div>
+    </div>
+    <div class="wordle-footer">
+      <div class="key-row">
+        <button id="Q" class="btn btn-key" onclick="handleLetterClick(event)">Q</button>
+        <button id="W" class="btn btn-key" onclick="handleLetterClick(event)">W</button>
+        <button id="E" class="btn btn-key" onclick="handleLetterClick(event)">E</button>
+        <button id="R" class="btn btn-key" onclick="handleLetterClick(event)">R</button>
+        <button id="T" class="btn btn-key" onclick="handleLetterClick(event)">T</button>
+        <button id="Y" class="btn btn-key" onclick="handleLetterClick(event)">Y</button>
+        <button id="U" class="btn btn-key" onclick="handleLetterClick(event)">U</button>
+        <button id="I" class="btn btn-key" onclick="handleLetterClick(event)">I</button>
+        <button id="O" class="btn btn-key" onclick="handleLetterClick(event)">O</button>
+        <button id="P" class="btn btn-key" onclick="handleLetterClick(event)">P</button>
+      </div>
+      <div class="key-row">
+        <button id="A" class="btn btn-key" onclick="handleLetterClick(event)">A</button>
+        <button id="S" class="btn btn-key" onclick="handleLetterClick(event)">S</button>
+        <button id="D" class="btn btn-key" onclick="handleLetterClick(event)">D</button>
+        <button id="F" class="btn btn-key" onclick="handleLetterClick(event)">F</button>
+        <button id="G" class="btn btn-key" onclick="handleLetterClick(event)">G</button>
+        <button id="H" class="btn btn-key" onclick="handleLetterClick(event)">H</button>
+        <button id="J" class="btn btn-key" onclick="handleLetterClick(event)">J</button>
+        <button id="K" class="btn btn-key" onclick="handleLetterClick(event)">K</button>
+        <button id="L" class="btn btn-key" onclick="handleLetterClick(event)">L</button>
+      </div>
+      <div class="key-row">
+        <button class="btn btn-key" onclick="handleGuessClick(event)">GUESS</button>
+        <button id="Z" class="btn btn-key" onclick="handleLetterClick(event)">Z</button>
+        <button id="X" class="btn btn-key" onclick="handleLetterClick(event)">X</button>
+        <button id="C" class="btn btn-key" onclick="handleLetterClick(event)">C</button>
+        <button id="V" class="btn btn-key" onclick="handleLetterClick(event)">V</button>
+        <button id="B" class="btn btn-key" onclick="handleLetterClick(event)">B</button>
+        <button id="N" class="btn btn-key" onclick="handleLetterClick(event)">N</button>
+        <button id="M" class="btn btn-key" onclick="handleLetterClick(event)">M</button>
+        <button class="btn btn-key" onclick="handleBackClick(event)">BACK</button>
+      </div>
+    </div>
+  </body>
+</html>
